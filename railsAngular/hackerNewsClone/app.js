@@ -13,7 +13,14 @@ function($scope){
   ];
 
   $scope.addPost = function(){
+    // prevents blank entry for title
+    if (!scope.title || $scope.title === '') { return; }
+
     $scope.posts.push({title: $scope.title, upvotes: 0});
     $scope.title = '';
   };
+
+  $scope.incrementUpVotes = function(post) {
+    post.upvotes += 1;
+  }
 }]);
